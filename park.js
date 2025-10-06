@@ -5,3 +5,4 @@ function occupied(sentence){
         if (y[i] === "c" && t[i]  === "c"){
     }
 }
+
