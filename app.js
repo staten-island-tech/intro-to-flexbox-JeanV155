@@ -1,3 +1,0 @@
-if (!citizen)[
-    console.log()
-]
