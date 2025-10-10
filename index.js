@@ -200,13 +200,41 @@ const House = [
     price: 560000
   }
 ];
-function inject(House) {
+const DOMSelectors = {
+  display: document.getElementById("display"),
+  form: document.getElementById("form"),
+  name: document.getElementById("name"),
+  type: document.getElementById("type"),
+  area: document.getElementById("area"),
+  img: document.getElementById("img"),
+  price: document.getElementById("price"),
+};
+
+// ----- Inject Function -----
+function inject(house) {
   DOMSelectors.display.insertAdjacentHTML(
-      `<div class="display-card">${House.url}
-      <h2 class="display-artist">${House.type}</h2>
-      <h3 class="display-album">${House.name}</h3>
-      <button class="remove btn">Remove Album</button>
-    </div>`
+    "afterbegin",
+    `
+    <div class="display-card">
+      <img class="display-img" src="${house.img}" alt="${house.name}" />
+      <h2>${house.name}</h2>
+      <p><strong>Type:</strong> ${house.type}</p>
+      <p><strong>Area:</strong> ${house.area}</p>
+      <p><strong>Price:</strong> $${parseInt(house.price).toLocaleString()}</p>
+      <button class="remove btn">Remove House</button>
+    </div>
+    `
   );
-}
-inject(House[0]);
+
+
+document.getElementById("form").addEventListener("submit", function (e) {
+  e.preventDefault(); // stops page from refreshing
+  let House = {
+    title: document.getElementById("name").value,
+    artist: document.getElementById("artist").value,
+    url: document.getElementById("url").value
+  };
+  inject(album); // add to the page
+  clearFields(); // reset form inputs
+});
+
