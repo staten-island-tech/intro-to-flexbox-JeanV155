@@ -13,7 +13,7 @@ const House = [
     id: 2,
     name: "House 2",
     instock: true,
-    img: "https://cdn.tollbrothers.com/communities/13316/images-resized/Modern_Farmhouse_Exterior_01_1920.jpg",
+    img: "https://photos.zillowstatic.com/fp/c0f2c4c8932aef7f86fed2bb06fd90c3-cc_ft_768.webp",
     type: "3 bedroom",
     area: "Rochester",
     category: "Modern",
@@ -211,30 +211,27 @@ const DOMSelectors = {
 };
 
 // ----- Inject Function -----
+const container = document.querySelector(".container");
+
+// ---------- Inject Function ----------
 function inject(house) {
-  DOMSelectors.display.insertAdjacentHTML(
-    "afterbegin",
+  container.insertAdjacentHTML(
+    "beforeend",
     `
-    <div class="display-card">
-      <img class="display-img" src="${house.img}" alt="${house.name}" />
-      <h2>${house.name}</h2>
-      <p><strong>Type:</strong> ${house.type}</p>
-      <p><strong>Area:</strong> ${house.area}</p>
-      <p><strong>Price:</strong> $${parseInt(house.price).toLocaleString()}</p>
-      <button class="remove btn">Remove House</button>
+    <div class="card">
+      <h2 class="card-header">${house.name}</h2>
+      <img class="card-img" src="${house.img}" alt="${house.name}" />
+      <h3 class="card-price">$${house.price.toLocaleString()}</h3>
+      <button type="button">Buy House</button>
     </div>
     `
   );
+}
 
-
-document.getElementById("form").addEventListener("submit", function (e) {
-  e.preventDefault(); // stops page from refreshing
-  let House = {
-    title: document.getElementById("name").value,
-    artist: document.getElementById("artist").value,
-    url: document.getElementById("url").value
-  };
-  inject(album); // add to the page
-  clearFields(); // reset form inputs
+// ---------- Display All Houses ----------
+House.forEach((house) => {
+  inject(house);
 });
+
+
 
