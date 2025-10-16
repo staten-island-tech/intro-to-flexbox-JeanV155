@@ -23,7 +23,7 @@ const House = [
     id: 3,
     name: "House 3",
     instock: false,
-    img: "https://cdn.tollbrothers.com/communities/13844/images-resized/Exterior_01_1920.jpg",
+    img: "https://photos.zillowstatic.com/fp/1f0abc030fb118d8ade09a33d781be63-cc_ft_768.webp",
     type: "5 bedroom",
     area: "Albany",
     category: "Family",
@@ -33,7 +33,7 @@ const House = [
     id: 4,
     name: "House 4",
     instock: true,
-    img: "https://cdn.tollbrothers.com/communities/13316/images-resized/Traditional_Exterior_01_1920.jpg",
+    img: "https://photos.zillowstatic.com/fp/615112c53a9290232fd73394f77ab0df-cc_ft_768.webp",
     type: "4 bedroom",
     area: "Syracuse",
     category: "Classic",
@@ -233,5 +233,14 @@ House.forEach((house) => {
   inject(house);
 });
 
+document.getElementById("Houses").addEventListener("button", function (e) {
+
+  let home= {
+    title: document.getElementById("").value,
+    type: document.getElementById("").value,
+    url: document.getElementById("").value
+  };
+  inject(); // add to the page
+});
 
 
