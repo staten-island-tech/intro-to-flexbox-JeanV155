@@ -43,7 +43,7 @@ const House = [
     id: 5,
     name: "House 5",
     instock: false,
-    img: "https://cdn.tollbrothers.com/communities/13619/images-resized/Exterior_01_1920.jpg",
+    img: "https://photos.zillowstatic.com/fp/7c419cd24cc7e95051c3010e3681df81-cc_ft_768.webp",
     type: "3 bedroom",
     area: "Buffalo",
     category: "Beach",
@@ -242,5 +242,21 @@ document.getElementById("Houses").addEventListener("button", function (e) {
   };
   inject(); // add to the page
 });
+function getcard() {
+const buttons = document.querySelectorAll("button");
+const btnArr = Array.from("button");
+  btnArr.forEach((btn) =>
+    btn.addEventListener("click", function (event) {
+      console.log (
+        event.target.closest(".display-card").getAttribute("data-title"),
+        event.target.textContent
+    )
+  }
+    ));
+  } 
 
-
+ const shoppingcart = []
+  if (selectedHouse) {
+        // Add it to the shopping cart
+        shoppingCart.push(selectedHouse);
+  }
