@@ -200,6 +200,9 @@ const House = [
     price: 560000
   }
 ];
+
+const shoppingcart = []
+
 const DOMSelectors = {
   display: document.getElementById("display"),
   form: document.getElementById("form"),
@@ -243,20 +246,30 @@ document.getElementById("Houses").addEventListener("button", function (e) {
   inject(); // add to the page
 });
 function getcard() {
-const buttons = document.querySelectorAll("button");
-const btnArr = Array.from("button");
+  const buttons = document.querySelectorAll("button");
+  const btnArr = Array.from(buttons); 
+
   btnArr.forEach((btn) =>
     btn.addEventListener("click", function (event) {
-      console.log (
-        event.target.closest(".display-card").getAttribute("data-title"),
-        event.target.textContent
-    )
-  }
-    ));
-  } 
+      
+      const card = event.target.closest(".card");
+      if (!card) return;
 
- const shoppingcart = []
-  if (selectedHouse) {
-        // Add it to the shopping cart
+      const houseId = parseInt(card.getAttribute("data-id"));
+     
+      const selectedHouse = House.find(house => house.id === houseId);
+
+      if (selectedHouse && selectedHouse.instock) {
+       
         shoppingCart.push(selectedHouse);
-  }
+        console.log(`Added to cart: ${selectedHouse.name}`);
+        
+      
+        event.target.disabled = true;
+        event.target.textContent = "Added";
+      } else {
+        console.log("House not available or out of stock.");
+      }
+    })
+  );
+}
