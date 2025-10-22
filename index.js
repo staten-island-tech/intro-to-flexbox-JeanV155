@@ -201,27 +201,16 @@ const House = [
   }
 ];
 
-const shoppingcart = []
+const shoppingcart = [];
 
-const DOMSelectors = {
-  display: document.getElementById("display"),
-  form: document.getElementById("form"),
-  name: document.getElementById("name"),
-  type: document.getElementById("type"),
-  area: document.getElementById("area"),
-  img: document.getElementById("img"),
-  price: document.getElementById("price"),
-};
-
-// ----- Inject Function -----
 const container = document.querySelector(".container");
 
-// ---------- Inject Function ----------
+// Inject each house as a card into the container
 function inject(house) {
   container.insertAdjacentHTML(
     "beforeend",
     `
-    <div class="card">
+    <div class="card" data-title="${house.name}">
       <h2 class="card-header">${house.name}</h2>
       <img class="card-img" src="${house.img}" alt="${house.name}" />
       <h3 class="card-price">$${house.price.toLocaleString()}</h3>
@@ -231,45 +220,33 @@ function inject(house) {
   );
 }
 
-// ---------- Display All Houses ----------
+// Display all houses initially
 House.forEach((house) => {
   inject(house);
 });
 
-document.getElementById("Houses").addEventListener("button", function (e) {
-
-  let home= {
-    title: document.getElementById("").value,
-    type: document.getElementById("").value,
-    url: document.getElementById("").value
-  };
-  inject(); // add to the page
-});
+// Handle Buy House button clicks
 function getcard() {
   const buttons = document.querySelectorAll("button");
-  const btnArr = Array.from(buttons); 
 
-  btnArr.forEach((btn) =>
+  buttons.forEach((btn) =>
     btn.addEventListener("click", function (event) {
-      
       const card = event.target.closest(".card");
-      if (!card) return;
+      const title = card.getAttribute("data-title");
 
-      const houseId = parseInt(card.getAttribute("data-id"));
-     
-      const selectedHouse = House.find(house => house.id === houseId);
-
-      if (selectedHouse && selectedHouse.instock) {
-       
-        shoppingCart.push(selectedHouse);
-        console.log(`Added to cart: ${selectedHouse.name}`);
-        
-      
-        event.target.disabled = true;
-        event.target.textContent = "Added";
-      } else {
-        console.log("House not available or out of stock.");
-      }
+      const house = House.find((house) => house.name === title);
+      shoppingcart.push(house);
+      console.log(title);
     })
   );
 }
+
+getcard(); 
+
+function filterByGenre(genre) {
+    const display = document.getElementById("card-display");
+    display.innerHTML = "";
+    const filtercategory = House.filter((House) => House.genre === House);
+    
+}
+
