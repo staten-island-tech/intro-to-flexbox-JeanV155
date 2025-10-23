@@ -233,7 +233,6 @@ function getcard() {
     btn.addEventListener("click", function (event) {
       const card = event.target.closest(".card");
       const title = card.getAttribute("data-title");
-
       const house = House.find((house) => house.name === title);
       shoppingcart.push(house);
       console.log(title);
@@ -243,10 +242,10 @@ function getcard() {
 
 getcard(); 
 
-function filterByGenre(genre) {
-    const display = document.getElementById("card-display");
-    display.innerHTML = "";
-    const filtercategory = House.filter((House) => House.genre === House);
-    
+function filterBycategory(category) {
+  const display = document.querySelector(".container");
+  display.innerHTML = "";
+  const filteredHouses = House.filter((house) => house.category === category);
+  filteredHouses.forEach((house) => inject(house));
+  getcard();
 }
-
