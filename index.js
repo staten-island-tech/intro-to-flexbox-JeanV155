@@ -53,7 +53,7 @@ const House = [
     id: 6,
     name: "House 6",
     instock: true,
-    img: "https://cdn.tollbrothers.com/communities/13316/images-resized/Contemporary_Exterior_01_1920.jpg",
+    img: "https://3.files.edl.io/aeb1/20/12/02/154937-46cc468f-b7f4-4bb3-945e-3265bdb605d4.jpg",
     type: "2 bedroom",
     area: "Ithaca",
     category: "Modern",
@@ -249,3 +249,5 @@ function filterBycategory(category) {
   filteredHouses.forEach((house) => inject(house));
   getcard();
 }
+
+
