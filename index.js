@@ -250,4 +250,7 @@ function filterBycategory(category) {
   getcard();
 }
 
+function AddToCart(id) {
+
+}
 
