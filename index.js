@@ -202,8 +202,9 @@ const House = [
 ];
 
 const shoppingcart = [];
-
 const container = document.querySelector(".container");
+const cartContainer = document.querySelector(".cart-items");
+const totalDisplay = document.getElementById("cart-total");
 
 // Inject each house as a card into the container
 function inject(house) {
@@ -221,36 +222,51 @@ function inject(house) {
 }
 
 // Display all houses initially
-House.forEach((house) => {
-  inject(house);
-});
+House.forEach((house) => inject(house));
 
 // Handle Buy House button clicks
 function getcard() {
-  const buttons = document.querySelectorAll("button");
+  const buttons = document.querySelectorAll(".card button");
 
   buttons.forEach((btn) =>
     btn.addEventListener("click", function (event) {
       const card = event.target.closest(".card");
       const title = card.getAttribute("data-title");
-      const house = House.find((house) => house.name === title);
+      const house = House.find((h) => h.name === title);
+
+      // Add the house price to the cart
       shoppingcart.push(house);
-      console.log(title);
+      renderCart();
     })
   );
 }
 
-getcard(); 
+getcard();
 
+// Function to show only the prices in the cart + total
+function renderCart() {
+  cartContainer.innerHTML = "";
+
+  shoppingcart.forEach((item) => {
+    cartContainer.insertAdjacentHTML(
+      "beforeend",
+      `
+      <div class="cart-item">
+        <p>$${item.price.toLocaleString()}</p>
+      </div>
+      `
+    );
+  });
+
+  // Calculate total
+  const total = shoppingcart.reduce((sum, item) => sum + item.price, 0);
+  totalDisplay.textContent = total.toLocaleString();
+}
+
+// Filter by category
 function filterBycategory(category) {
-  const display = document.querySelector(".container");
-  display.innerHTML = "";
+  container.innerHTML = "";
   const filteredHouses = House.filter((house) => house.category === category);
-  filteredHouses.forEach((house) => inject(house));
-  getcard();
+  filteredHouses.forEach(inject);
+  getcard(); // reattach button listeners
 }
-
-function AddToCart(id) {
-
-}
-
