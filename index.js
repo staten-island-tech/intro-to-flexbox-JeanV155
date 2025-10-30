@@ -153,7 +153,7 @@ const House = [
     id: 16,
     name: "House 16",
     instock: true,
-    img: "https://cdn.tollbrothers.com/communities/13844/images-resized/Modern_Farmhouse_Exterior_02_1920.jpg",
+    img: "https://photos.zillowstatic.com/fp/f20980841d7daf56847d725de5096375-cc_ft_768.webp",
     type: "4 bedroom",
     area: "Kingston",
     category: "Modern",
@@ -163,7 +163,7 @@ const House = [
     id: 17,
     name: "House 17",
     instock: false,
-    img: "https://cdn.tollbrothers.com/communities/13619/images-resized/Contemporary_Exterior_02_1920.jpg",
+    img: "https://photos.zillowstatic.com/fp/138224999599880f3e97ca396780d162-cc_ft_768.webp",
     type: "3 bedroom",
     area: "Glens Falls",
     category: "Contemporary",
@@ -173,7 +173,7 @@ const House = [
     id: 18,
     name: "House 18",
     instock: true,
-    img: "https://cdn.tollbrothers.com/communities/13316/images-resized/Traditional_Exterior_02_1920.jpg",
+    img: "https://photos.zillowstatic.com/fp/dbf626d4af3a67117a04bb31d80978f0-cc_ft_768.webp",
     type: "4 bedroom",
     area: "Ogdensburg",
     category: "Classic",
@@ -183,7 +183,7 @@ const House = [
     id: 19,
     name: "House 19",
     instock: true,
-    img: "https://cdn.tollbrothers.com/communities/13844/images-resized/Colonial_Exterior_02_1920.jpg",
+    img: "https://photos.zillowstatic.com/fp/164c3c217124fa695ccad24f6624f407-cc_ft_384.webp",
     type: "5 bedroom",
     area: "Hudson",
     category: "Colonial",
@@ -193,7 +193,7 @@ const House = [
     id: 20,
     name: "House 20",
     instock: false,
-    img: "https://cdn.tollbrothers.com/communities/13619/images-resized/Ranch_Exterior_02_1920.jpg",
+    img: "https://photos.zillowstatic.com/fp/b2bcd71b75faf9ff440d653a0a0901a3-cc_ft_768.webp",
     type: "3 bedroom",
     area: "Geneva",
     category: "Ranch",
@@ -206,7 +206,7 @@ const container = document.querySelector(".container");
 const cartContainer = document.querySelector(".cart-items");
 const totalDisplay = document.getElementById("cart-total");
 
-// Inject each house as a card into the container
+
 function inject(house) {
   container.insertAdjacentHTML(
     "beforeend",
@@ -221,10 +221,10 @@ function inject(house) {
   );
 }
 
-// Display all houses initially
+
 House.forEach((house) => inject(house));
 
-// Handle Buy House button clicks
+
 function getcard() {
   const buttons = document.querySelectorAll(".card button");
 
@@ -234,7 +234,7 @@ function getcard() {
       const title = card.getAttribute("data-title");
       const house = House.find((h) => h.name === title);
 
-      // Add the house price to the cart
+     
       shoppingcart.push(house);
       renderCart();
     })
@@ -243,7 +243,7 @@ function getcard() {
 
 getcard();
 
-// Function to show only the prices in the cart + total
+
 function renderCart() {
   cartContainer.innerHTML = "";
 
@@ -252,21 +252,23 @@ function renderCart() {
       "beforeend",
       `
       <div class="cart-item">
-        <p>$${item.price.toLocaleString()}</p>
+        <p class="cart-name">${item.name}</p>
+        <p class="cart-price">$${item.price.toLocaleString()}</p>
       </div>
       `
     );
   });
 
-  // Calculate total
+ 
   const total = shoppingcart.reduce((sum, item) => sum + item.price, 0);
   totalDisplay.textContent = total.toLocaleString();
 }
 
-// Filter by category
+
+
 function filterBycategory(category) {
   container.innerHTML = "";
   const filteredHouses = House.filter((house) => house.category === category);
   filteredHouses.forEach(inject);
-  getcard(); // reattach button listeners
+  getcard(); 
 }
