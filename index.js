@@ -22,7 +22,7 @@ const House = [
   {
     id: 3,
     name: "House 3",
-    instock: false,
+    instock: true,
     img: "https://photos.zillowstatic.com/fp/1f0abc030fb118d8ade09a33d781be63-cc_ft_768.webp",
     type: "5 bedroom",
     area: "Albany",
@@ -42,7 +42,7 @@ const House = [
   {
     id: 5,
     name: "House 5",
-    instock: false,
+    instock: true,
     img: "https://photos.zillowstatic.com/fp/7c419cd24cc7e95051c3010e3681df81-cc_ft_768.webp",
     type: "3 bedroom",
     area: "Buffalo",
@@ -72,7 +72,7 @@ const House = [
   {
     id: 8,
     name: "House 8",
-    instock: false,
+    instock: true,
     img: "https://cdn.tollbrothers.com/communities/13619/images-resized/Modern_Exterior_01_1920.jpg",
     type: "3 bedroom",
     area: "Binghamton",
@@ -102,7 +102,7 @@ const House = [
   {
     id: 11,
     name: "House 11",
-    instock: false,
+    instock: true,
     img: "https://cdn.tollbrothers.com/communities/13619/images-resized/Tudor_Exterior_01_1920.jpg",
     type: "4 bedroom",
     area: "Jamestown",
@@ -132,7 +132,7 @@ const House = [
   {
     id: 14,
     name: "House 14",
-    instock: false,
+    instock: true,
     img: "https://cdn.tollbrothers.com/communities/13619/images-resized/Mountain_Exterior_01_1920.jpg",
     type: "4 bedroom",
     area: "Lake Placid",
@@ -162,7 +162,7 @@ const House = [
   {
     id: 17,
     name: "House 17",
-    instock: false,
+    instock: true,
     img: "https://photos.zillowstatic.com/fp/138224999599880f3e97ca396780d162-cc_ft_768.webp",
     type: "3 bedroom",
     area: "Glens Falls",
@@ -192,7 +192,7 @@ const House = [
   {
     id: 20,
     name: "House 20",
-    instock: false,
+    instock: true,
     img: "https://photos.zillowstatic.com/fp/b2bcd71b75faf9ff440d653a0a0901a3-cc_ft_768.webp",
     type: "3 bedroom",
     area: "Geneva",
