@@ -6,11 +6,18 @@ const cart = [
   { name: "Bananas", price: 1.25, quantity: 6 }
 ]; 
 
-function CalculateSubtotal() {
-    cart.forEach(element => {
-        if (price<5)
-            price = price*0.05
-        if
-    });
-    
+function CalculateSubtotal(cart) {
+  let subtotal = 0;
+
+  cart.forEach(element => {
+    if (element.price < 5) {
+      element.price *= 0.95;
+    }
+    subtotal += element.price * element.quantity;
+    if (subtotal > 100)
+        subtotal *= 0.90
+  });
+  return subtotal;
 }
+const total = CalculateSubtotal(cart);
+console.log(`Subtotal: $${total.toFixed(2)}`);
