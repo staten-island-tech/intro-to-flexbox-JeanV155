@@ -18,15 +18,22 @@ const dnsRecords = [
   { address: "youtube.com", dns: "142.250.190.46" },
 ]; 
 
-function findDNS() {
+function findDNS(records, targets) {
+
 let low = 0;
-let high = dnsRecords.length - 1;
-while (low <= high)
+let high = records.length - 1;
+while (low <= high){
    let mid = Math.floor((low + high)/2);
+  if (records[mid].address === targets) {
+    return records[mid].dns;
+  }else if (records[mid].address < targets) {
+   low = mid + 1;
+  }else {
+     high = mid -1;
+   }
+
+  }
 }
-if (dnsRecords[mid] === value)
-    return mid
-(dnsRecords[mid] < value)
     low = mid + 1
 
     high = mid -1
