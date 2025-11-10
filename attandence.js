@@ -1,7 +1,6 @@
-const Takenumbers = [ 23, TAKE, TAKE, SERVE, ]
+const TAKE = "TAKE"
+const Takenumbers = (23, [TAKE, TAKE, SERVE, TAKE, SERVE, SERVE, CLOSE, TAKE, TAKE, TAKE, SERVE, CLOSE, TAKE, SERVE, TAKE, SERVE, TAKE, TAKE, TAKE, TAKE, TAKE, SERVE, CLOSE,EOF])
 
-function attandence(students){
-    low = 0
-    high = students.length -1
-
+function TakeNumber(num, list){
+    while()
 }
