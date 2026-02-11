@@ -72,13 +72,13 @@ const House = [
   {
     id: 8,
     name: "House 8",
-<<<<<<< HEAD
+
     instock: false,
     img: "https://photos.zillowstatic.com/fp/107a471c683f6c8076c34fd2ebb534a2-cc_ft_768.webp",
-=======
+
     instock: true,
     img: "https://cdn.tollbrothers.com/communities/13619/images-resized/Modern_Exterior_01_1920.jpg",
->>>>>>> 54a0b4674f55bd3e232368034821e53361518fbd
+
     type: "3 bedroom",
     area: "Binghamton",
     category: "Modern",
@@ -107,13 +107,12 @@ const House = [
   {
     id: 11,
     name: "House 11",
-<<<<<<< HEAD
-    instock: false,
+
     img: "https://photos.zillowstatic.com/fp/a81fd2929ad84227840356ba63930392-cc_ft_768.webp",
-=======
+
     instock: true,
     img: "https://cdn.tollbrothers.com/communities/13619/images-resized/Tudor_Exterior_01_1920.jpg",
->>>>>>> 54a0b4674f55bd3e232368034821e53361518fbd
+
     type: "4 bedroom",
     area: "Jamestown",
     category: "Tudor",
@@ -142,13 +141,13 @@ const House = [
   {
     id: 14,
     name: "House 14",
-<<<<<<< HEAD
+
     instock: false,
     img: "https://photos.zillowstatic.com/fp/9f02bcef775473e3330c4df426fda5f1-cc_ft_768.webp",
-=======
+
     instock: true,
     img: "https://cdn.tollbrothers.com/communities/13619/images-resized/Mountain_Exterior_01_1920.jpg",
->>>>>>> 54a0b4674f55bd3e232368034821e53361518fbd
+
     type: "4 bedroom",
     area: "Lake Placid",
     category: "Mountain",
